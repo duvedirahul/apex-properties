@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Apex Property Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ================================================
+    STEP 1: PASTE YOUR HUBSPOT TRACKING CODE HERE
+    (Settings → Tracking Code in HubSpot)
+    Example:
+    <script type="text/javascript" id="hs-script-loader" async defer
+      src="//js-na1.hs-scripts.com/YOUR_PORTAL_ID.js">
+    </script>
+  ================================================ -->
+  <!-- PASTE HUBSPOT TRACKING CODE HERE -->
+
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --gold:   #c9a84c;
+      --gold2:  #e8c97a;
+      --cream:  #f5f0e8;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --light:  #f9f7f4;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--navy); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+    .logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.6rem 1.4rem; border-radius: 4px; font-weight: 600 !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%);
+      padding: 10rem 5% 5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+    .page-hero .section-label { color: var(--gold); display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem; position: relative; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); color: var(--white); line-height: 1.15; max-width: 700px; margin: 0 auto 1.2rem; position: relative; }
+    .page-hero h1 em { color: var(--gold); font-style: normal; }
+    .page-hero p { color: rgba(255,255,255,0.65); font-size: 1.1rem; max-width: 560px; margin: 0 auto; line-height: 1.75; position: relative; }
+
+    /* CONTACT LAYOUT */
+    .contact-section { padding: 6rem 5%; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; }
+
+    /* LEFT INFO */
+    .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+    .contact-info > p { color: var(--gray); line-height: 1.75; margin-bottom: 2.5rem; }
+
+    .contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .detail-row { display: flex; gap: 1rem; align-items: flex-start; }
+    .detail-icon { font-size: 1.2rem; width: 40px; height: 40px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .detail-text strong { display: block; font-size: 0.85rem; color: var(--navy); margin-bottom: 0.15rem; }
+    .detail-text span { font-size: 0.9rem; color: var(--gray); }
+
+    .why-call { background: var(--navy); border-radius: 14px; padding: 2rem; }
+    .why-call h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 1.2rem; }
+    .why-call ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .why-call li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .why-call li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+    /* FORM AREA */
+    .form-container {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 4px 30px rgba(13,27,42,0.08);
+      border: 1px solid rgba(13,27,42,0.07);
+    }
+    .form-container h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; margin-bottom: 0.5rem;
+    }
+    .form-container > p { color: var(--gray); font-size: 0.92rem; margin-bottom: 2rem; }
+
+    /* ================================================
+      HUBSPOT FORM EMBED AREA
+      The div below is where your HubSpot form will appear.
+      Replace the placeholder content with HubSpot embed code.
+      See instructions at the bottom of this file.
+    ================================================ */
+    #hubspot-form-container {
+      /* HubSpot injects its form here via JavaScript */
+    }
+
+    /* Fallback form (shown if HubSpot hasn't been configured yet) */
+    .fallback-notice {
+      background: rgba(201,168,76,0.08);
+      border: 1.5px dashed rgba(201,168,76,0.4);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .fallback-notice h4 { color: var(--navy); margin-bottom: 0.5rem; }
+    .fallback-notice p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+    .fallback-notice code {
+      display: block;
+      background: var(--light);
+      border-radius: 6px;
+      padding: 1rem;
+      font-size: 0.78rem;
+      text-align: left;
+      color: #c0392b;
+      margin-top: 1rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Native fallback form (hidden once HubSpot loads) */
+    .native-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+    .form-group input, .form-group select, .form-group textarea {
+      border: 1.5px solid rgba(13,27,42,0.15);
+      border-radius: 7px;
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--navy);
+      background: var(--light);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .submit-btn {
+      background: var(--gold);
+      color: var(--navy);
+      border: none; border-radius: 7px;
+      padding: 1rem 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+    .form-disclaimer { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
+
+    footer { background: #080f18; padding: 3rem 5% 2rem; color: rgba(255,255,255,0.5); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem; margin-bottom: 1.5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.82rem; text-align: center; }
+
+    @media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } .form-row { grid-template-columns: 1fr; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Apex<span>Property</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Strategy Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Get In Touch</span>
+  <h1>Book Your <em>Free</em> Strategy Session</h1>
+  <p>Speak with one of our expert property strategists. No obligation, no pressure — just clear, honest guidance for your financial future.</p>
+</div>
+
+<section class="contact-section">
+  <div class="contact-grid">
+
+    <!-- LEFT: Info -->
+    <div class="contact-info">
+      <h2>Let's Talk About Your Property Goals</h2>
+      <p>Whether you're a first-time investor or looking to grow an existing portfolio, our team is ready to help you take the next step with confidence.</p>
+
+      <div class="contact-details">
+        <div class="detail-row">
+          <div class="detail-icon">📞</div>
+          <div class="detail-text">
+            <strong>Phone</strong>
+            <span>1300 000 000</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">✉️</div>
+          <div class="detail-text">
+            <strong>Email</strong>
+            <span>hello@apexproperty.com.au</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">📍</div>
+          <div class="detail-text">
+            <strong>Head Office</strong>
+            <span>Level 12, 201 Kent Street, Sydney NSW 2000</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">🕐</div>
+          <div class="detail-text">
+            <strong>Office Hours</strong>
+            <span>Mon – Fri: 9am – 6pm AEST</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-call">
+        <h3>What to Expect in Your Session</h3>
+        <ul>
+          <li>A clear picture of your borrowing capacity and investment position</li>
+          <li>A tailored investment roadmap based on your goals</li>
+          <li>Insights into the top-performing growth corridors right now</li>
+          <li>Honest advice — even if the answer is "not yet"</li>
+          <li>Zero pressure and zero obligation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="form-container">
+      <h3>Book Your Free Consultation</h3>
+      <p>Fill in your details and a strategist will reach out within 24 hours.</p>
+
+      <!-- ================================================
+        HUBSPOT FORM EMBED:
+
+        OPTION A — Embed via JavaScript (recommended):
+        1. In HubSpot: Marketing → Forms → [Your Form] → Share → Embed Code
+        2. Copy the <script> snippet. It looks like:
+              <script charset="utf-8" type="text/javascript"
+                src="//js.hsforms.net/forms/embed/v2.js"></script>
+              <script>
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "YOUR_PORTAL_ID",
+                  formId: "YOUR_FORM_ID"
+                });
+              </script>
+        3. Paste it BELOW, replacing the fallback notice div.
+
+        OPTION B — Embed via iFrame:
+        1. In HubSpot: Marketing → Forms → [Your Form] → Share → iFrame
+        2. Paste the <iframe> code below.
+
+        Delete the fallback-notice div once you have your HubSpot form code.
+      ================================================ -->
+
+      <!-- HubSpot form goes here ↓ -->
+      <div id="hubspot-form-container">
+
+        <!-- DELETE THIS BLOCK once HubSpot form is added -->
+        <div class="fallback-notice" id="fallback-placeholder">
+          <h4>🔧 HubSpot Form Placeholder</h4>
+          <p>Paste your HubSpot embed code here. To get it:</p>
+          <code>1. Go to HubSpot → Marketing → Forms
+2. Create or select your form
+3. Click Share → Embed Code
+4. Paste the &lt;script&gt; code here,
+   replacing this entire block.</code>
+        </div>
+
+      </div>
+
+      <!-- NATIVE FALLBACK FORM (optional — remove if using only HubSpot) -->
+      <form class="native-form" id="native-form" style="margin-top: 1.5rem; display:none;" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" required placeholder="John" />
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" required placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" required placeholder="john@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" required placeholder="0400 000 000" />
+        </div>
+        <div class="form-group">
+          <label>Where are you in your property journey?</label>
+          <select>
+            <option value="">Please select...</option>
+            <option>I'm a first-time investor</option>
+            <option>I own 1 investment property</option>
+            <option>I own 2–4 investment properties</option>
+            <option>I own 5+ investment properties</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What are your investment goals?</label>
+          <textarea placeholder="Tell us about your situation and what you're hoping to achieve..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Book My Free Session →</button>
+        <p class="form-disclaimer">By submitting this form you agree to our Privacy Policy. We will never share your details with third parties.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ApexProperty</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Apex Property Group. All rights reserved. General advice only — not financial advice.</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Thank you! One of our strategists will be in touch within 24 hours.');
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>

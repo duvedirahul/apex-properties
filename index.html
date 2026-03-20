@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apex Property Group | Your Path to Financial Freedom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ================================================
+    HUBSPOT INTEGRATION INSTRUCTIONS:
+    Replace the comment below with your HubSpot tracking code.
+    It looks like this:
+    <script type="text/javascript" id="hs-script-loader" async defer
+      src="//js-na1.hs-scripts.com/YOUR_PORTAL_ID.js">
+    </script>
+    Get it from: HubSpot → Settings → Tracking Code
+  ================================================ -->
+  <!-- PASTE HUBSPOT TRACKING CODE HERE -->
+
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --gold:   #c9a84c;
+      --gold2:  #e8c97a;
+      --cream:  #f5f0e8;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --light:  #f9f7f4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .logo span { color: var(--white); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold2) !important; color: var(--navy) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d1b2a 0%, #162840 50%, #1a3050 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 0 5%;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,168,76,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+
+    .hero p {
+      font-size: 1.15rem; font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.9rem 2rem;
+      border-radius: 5px;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 5px;
+      font-weight: 500; font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(201,168,76,0.2);
+    }
+    .hero-stat {
+      background: rgba(13,27,42,0.92);
+      padding: 1.5rem 5%;
+      text-align: center;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--gold);
+    }
+    .hero-stat span { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 5%; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--gray);
+      line-height: 1.75; max-width: 600px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-bg { background: var(--white); }
+
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 2rem; margin-top: 3.5rem;
+    }
+    .step {
+      background: var(--light);
+      border: 1px solid rgba(13,27,42,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,27,42,0.1); }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; font-weight: 900;
+      color: rgba(201,168,76,0.18);
+      line-height: 1; margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.65; }
+
+    /* ── WHY US ── */
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      margin-top: 2rem;
+    }
+    .why-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .feature {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .feature-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(201,168,76,0.12);
+      border: 1.5px solid rgba(201,168,76,0.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .feature-text h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .feature-text p { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+
+    .why-visual {
+      background: linear-gradient(145deg, var(--navy) 0%, #1e3a5f 100%);
+      border-radius: 16px; padding: 3rem;
+      color: var(--white);
+    }
+    .why-visual h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .metric-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .metric-row:last-child { border: none; }
+    .metric-label { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+    .metric-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-bg { background: var(--navy); }
+    .testimonials-bg .section-title { color: var(--white); }
+    .testimonials-bg .section-sub { color: rgba(255,255,255,0.6); }
+
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: background 0.25s;
+    }
+    .testi-card:hover { background: rgba(255,255,255,0.08); }
+    .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; }
+    .testi-card p {
+      font-size: 0.92rem; color: rgba(255,255,255,0.75);
+      line-height: 1.7; font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--gold); color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+    }
+    .testi-name { font-weight: 600; color: var(--white); font-size: 0.9rem; }
+    .testi-role { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--gold) 0%, #b8892e 100%);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--navy); margin-bottom: 1rem;
+    }
+    .cta-band p { color: rgba(13,27,42,0.75); margin-bottom: 2rem; font-size: 1.05rem; }
+    .btn-dark {
+      background: var(--navy); color: var(--gold);
+      padding: 0.9rem 2.2rem; border-radius: 5px;
+      font-weight: 700; text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-dark:hover { background: #162840; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f18;
+      padding: 3rem 5% 2rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 2rem; margin-bottom: 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--gold);
+    }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.82rem; text-align: center; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo">Apex<span>Property</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Strategy Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🏆 Australia's Trusted Property Advisory</div>
+    <h1>Build <em>Wealth</em> Through Smart Property Investment</h1>
+    <p>We help everyday Australians access high-growth investment properties with expert guidance, proven research, and end-to-end support — every step of the way.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">Book a Free Strategy Call</a>
+      <a href="about.html" class="btn-outline">Learn How It Works</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <strong>10,000+</strong>
+      <span>Investors Helped</span>
+    </div>
+    <div class="hero-stat">
+      <strong>$2.4B+</strong>
+      <span>Properties Secured</span>
+    </div>
+    <div class="hero-stat">
+      <strong>12+ Yrs</strong>
+      <span>Market Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-bg">
+  <div class="section-label">Our Process</div>
+  <h2 class="section-title">Your Journey to Financial Freedom</h2>
+  <p class="section-sub">We've distilled 12 years of property expertise into a simple, repeatable framework that puts you on the path to building a high-performing portfolio.</p>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Free Strategy Session</h3>
+      <p>We assess your financial position, goals and timeline to build a tailored investment roadmap — no obligation, no pressure.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Research & Property Selection</h3>
+      <p>Our data-driven methodology identifies high-growth suburbs before the market catches on, securing the best properties at wholesale prices.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Finance & Structure</h3>
+      <p>Our expert team structures your finance and ownership correctly from day one to maximise tax benefits and scalability.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Ongoing Portfolio Review</h3>
+      <p>We regularly review your portfolio performance and adjust strategy to keep you on track toward your financial freedom targets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section>
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Apex Property</div>
+      <h2 class="section-title">We Do More Than Find Properties</h2>
+      <p class="section-sub">We become your long-term wealth partner — combining research, finance, and mentorship under one roof.</p>
+
+      <div class="why-features">
+        <div class="feature">
+          <div class="feature-icon">🔬</div>
+          <div class="feature-text">
+            <h4>Data-Driven Research</h4>
+            <p>Our proprietary methodology analyses 200+ data points to identify locations before capital growth peaks.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-text">
+            <h4>Dedicated Property Strategist</h4>
+            <p>You get a dedicated expert assigned to you — not a call centre. Real relationships, real results.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💼</div>
+          <div class="feature-text">
+            <h4>End-to-End Support</h4>
+            <p>From finance to settlement to property management — we handle everything so you don't have to.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📈</div>
+          <div class="feature-text">
+            <h4>Wholesale Access</h4>
+            <p>Group buying power gives members access to discounted properties not available to the general public.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <h3>Member Portfolio Performance</h3>
+      <div class="metric-row">
+        <span class="metric-label">Avg. Capital Growth (5yr)</span>
+        <span class="metric-val">42.8%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Avg. Rental Yield</span>
+        <span class="metric-val">6.2% p.a.</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Properties Settled</span>
+        <span class="metric-val">4,200+</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Avg. Time to 1st Property</span>
+        <span class="metric-val">63 Days</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Member Satisfaction</span>
+        <span class="metric-val">4.9 ★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="section-label" style="color:var(--gold)">Member Stories</div>
+  <h2 class="section-title" style="color:var(--white)">Real People, Real Results</h2>
+  <p class="section-sub" style="color:rgba(255,255,255,0.6)">Over 10,000 Australians have transformed their financial future with Apex Property Group.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"We had no idea where to start. Our strategist walked us through every step and we secured two investment properties within 4 months. The whole team was incredible."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JM</div>
+        <div>
+          <div class="testi-name">James & Michelle</div>
+          <div class="testi-role">First-time investors, Brisbane</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"In just 3 years I've built a portfolio of 4 properties with over $800K in capital growth. Apex's research is second to none — I trust them completely."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AT</div>
+        <div>
+          <div class="testi-name">Arjun Tripathi</div>
+          <div class="testi-role">IT Manager, Sydney</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Other advisors turned us away. Apex found us a high-yield property in a booming corridor within weeks. Three years on, we couldn't be happier with our decision."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SL</div>
+        <div>
+          <div class="testi-name">Sarah & Luke</div>
+          <div class="testi-role">Teachers, Melbourne</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Start Your Property Investment Journey Today</h2>
+  <p>Book your free, no-obligation strategy session with one of our expert advisors.</p>
+  <a href="contact.html" class="btn-dark">Book a Free Session →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ApexProperty</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Apex Property Group. All rights reserved. General advice only — not financial advice.</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Apex Property Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- PASTE HUBSPOT TRACKING CODE HERE -->
+
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --gold:   #c9a84c;
+      --gold2:  #e8c97a;
+      --cream:  #f5f0e8;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --light:  #f9f7f4;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--navy); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+    .logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.6rem 1.4rem; border-radius: 4px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold2) !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #162840 100%);
+      padding: 10rem 5% 5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+    .page-hero .section-label { color: var(--gold); display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); color: var(--white); line-height: 1.15; max-width: 700px; margin: 0 auto 1.2rem; position: relative; }
+    .page-hero h1 em { color: var(--gold); font-style: normal; }
+    .page-hero p { color: rgba(255,255,255,0.65); font-size: 1.1rem; max-width: 560px; margin: 0 auto; line-height: 1.75; position: relative; }
+
+    section { padding: 6rem 5%; }
+    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: var(--navy); margin-bottom: 1.2rem; }
+    .section-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.75; max-width: 600px; }
+
+    /* MISSION */
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .mission-copy p { font-size: 1rem; color: var(--gray); line-height: 1.8; margin-bottom: 1rem; }
+    .mission-visual {
+      background: var(--navy); border-radius: 16px; padding: 3rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .mission-visual blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; color: var(--white); line-height: 1.5;
+      border-left: 3px solid var(--gold); padding-left: 1.2rem;
+    }
+    .mission-visual cite { font-size: 0.85rem; color: var(--gold); font-style: normal; }
+
+    /* VALUES */
+    .values-bg { background: var(--white); }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .value-card {
+      background: var(--light);
+      border: 1px solid rgba(13,27,42,0.08);
+      border-radius: 12px; padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(13,27,42,0.09); }
+    .value-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .value-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .value-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; margin-top: 3rem; }
+    .team-card {
+      background: var(--white);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(13,27,42,0.07);
+      transition: transform 0.2s;
+    }
+    .team-card:hover { transform: translateY(-4px); }
+    .team-avatar {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem; font-weight: 900;
+    }
+    .team-card:nth-child(1) .team-avatar { background: linear-gradient(145deg, #0d1b2a, #1e3a5f); color: var(--gold); }
+    .team-card:nth-child(2) .team-avatar { background: linear-gradient(145deg, #1e3a5f, #2a4f7c); color: var(--gold); }
+    .team-card:nth-child(3) .team-avatar { background: linear-gradient(145deg, #162840, #0d1b2a); color: var(--gold); }
+    .team-info { padding: 1.5rem; }
+    .team-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .team-info .role { font-size: 0.82rem; color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .team-info p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    /* MILESTONES */
+    .milestones-bg { background: var(--navy); }
+    .milestones-bg .section-title { color: var(--white); }
+    .timeline { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; border-left: 2px solid rgba(201,168,76,0.3); padding-left: 2rem; margin-left: 1rem; }
+    .milestone { position: relative; padding-bottom: 2.5rem; }
+    .milestone::before {
+      content: '';
+      position: absolute; left: -2.6rem; top: 0.2rem;
+      width: 14px; height: 14px;
+      background: var(--gold); border-radius: 50%;
+      border: 3px solid var(--navy);
+    }
+    .milestone-year { font-size: 0.78rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+    .milestone h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin: 0.3rem 0 0.4rem; }
+    .milestone p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* CTA */
+    .cta-band { background: linear-gradient(135deg, var(--gold) 0%, #b8892e 100%); padding: 4rem 5%; text-align: center; }
+    .cta-band h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); margin-bottom: 1rem; }
+    .cta-band p { color: rgba(13,27,42,0.75); margin-bottom: 2rem; font-size: 1.05rem; }
+    .btn-dark { background: var(--navy); color: var(--gold); padding: 0.9rem 2.2rem; border-radius: 5px; font-weight: 700; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-dark:hover { background: #162840; }
+
+    footer { background: #080f18; padding: 3rem 5% 2rem; color: rgba(255,255,255,0.5); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 2rem; margin-bottom: 1.5rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.82rem; text-align: center; }
+
+    @media(max-width:768px) { .mission-grid { grid-template-columns: 1fr; gap: 2.5rem; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Apex<span>Property</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Strategy Call</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="section-label">Our Story</span>
+  <h1>Helping Australians Achieve <em>Financial Freedom</em> Through Property</h1>
+  <p>Founded in 2013, Apex Property Group was built on a single belief: every Australian deserves access to expert property investment advice.</p>
+</div>
+
+<!-- MISSION -->
+<section>
+  <div class="mission-grid">
+    <div class="mission-copy">
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">Property Investment Made Simple</h2>
+      <p>We started Apex Property Group because we saw too many hard-working Australians being left behind — locked out of the property market by complexity, misinformation, and a lack of access to quality advice.</p>
+      <p>Today, we've helped over 10,000 members build wealth through high-performance investment properties. Our approach combines rigorous data science with genuinely personalised service — because your financial future deserves both.</p>
+      <p>We don't just find properties. We become your long-term wealth partner, guiding you from your very first strategy session all the way to a fully diversified portfolio.</p>
+    </div>
+    <div class="mission-visual">
+      <blockquote>"Every Australian, regardless of background or income, deserves the chance to build a life of true financial freedom through property."</blockquote>
+      <cite>— Founders, Apex Property Group</cite>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-bg">
+  <div class="section-label">What We Stand For</div>
+  <h2 class="section-title">Our Core Values</h2>
+  <p class="section-sub">Everything we do is guided by a commitment to integrity, excellence, and the long-term success of every member we serve.</p>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🔍</div>
+      <h3>Research First</h3>
+      <p>Every property recommendation is backed by rigorous analysis of over 200 economic, demographic and infrastructure data points.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h3>Member Success</h3>
+      <p>Our success is measured by yours. We only win when our members achieve real, lasting financial outcomes.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔒</div>
+      <h3>Integrity Always</h3>
+      <p>No kickbacks. No conflicts of interest. We provide independent advice that puts your goals first, always.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🚀</div>
+      <h3>Continuous Innovation</h3>
+      <p>We invest in our tools, research, and people to stay ahead of the market and deliver better results year after year.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section>
+  <div class="section-label">Meet The Team</div>
+  <h2 class="section-title">Led by Australia's Top Property Experts</h2>
+  <p class="section-sub">Our leadership team brings together deep expertise in property markets, data science, and financial strategy.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">M</div>
+      <div class="team-info">
+        <h3>Michael Chen</h3>
+        <div class="role">Co-Founder & Chief Investment Officer</div>
+        <p>With 20+ years in property and finance, Michael has personally overseen the acquisition of over $1.2B in investment properties across Australia.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">S</div>
+      <div class="team-info">
+        <h3>Sarah Nguyen</h3>
+        <div class="role">Co-Founder & Head of Research</div>
+        <p>A former data scientist from the financial sector, Sarah developed our proprietary market analysis framework that identifies high-growth locations years in advance.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">J</div>
+      <div class="team-info">
+        <h3>James Okafor</h3>
+        <div class="role">Head of Member Experience</div>
+        <p>James ensures every member receives world-class service, leading a team of 80+ property strategists dedicated to personalised guidance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="milestones-bg">
+  <div class="section-label" style="color:var(--gold)">Our Journey</div>
+  <h2 class="section-title">From Startup to Australia's Leading Advisory</h2>
+
+  <div class="timeline">
+    <div class="milestone">
+      <div class="milestone-year">2013</div>
+      <h3>Founded in Sydney</h3>
+      <p>Apex Property Group was launched with a team of 4 and a vision to democratise property investment advice for everyday Australians.</p>
+    </div>
+    <div class="milestone">
+      <div class="milestone-year">2016</div>
+      <h3>1,000 Members Milestone</h3>
+      <p>Reached our first 1,000 members and expanded our research team, launching our proprietary growth-prediction methodology.</p>
+    </div>
+    <div class="milestone">
+      <div class="milestone-year">2019</div>
+      <h3>National Expansion</h3>
+      <p>Opened offices in Melbourne, Brisbane and Perth to better serve members across the country with local expertise.</p>
+    </div>
+    <div class="milestone">
+      <div class="milestone-year">2022</div>
+      <h3>$1 Billion in Properties Settled</h3>
+      <p>Crossed the $1B milestone in total property value secured for members — a testament to the scale and trust we've built.</p>
+    </div>
+    <div class="milestone">
+      <div class="milestone-year">2026</div>
+      <h3>10,000+ Members & Growing</h3>
+      <p>Today we serve over 10,000 members with a team of 300+ experts, continuing to redefine what a property advisory can be.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Ready to Start Your Investment Journey?</h2>
+  <p>Book a free, no-obligation session with one of our expert property strategists.</p>
+  <a href="contact.html" class="btn-dark">Book Your Free Session →</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ApexProperty</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Apex Property Group. All rights reserved. General advice only — not financial advice.</p>
+</footer>
+</body>
+</html>
