@@ -209,7 +209,7 @@
           <div class="detail-icon">✉️</div>
           <div class="detail-text">
             <strong>Email</strong>
-            <span>hello@apexproperty.com.au</span>
+            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="08606d6464674869786d70787a67786d7a7c71266b676526697d">[email&#160;protected]</a></span>
           </div>
         </div>
         <div class="detail-row">
@@ -248,8 +248,30 @@
       <!-- HubSpot form goes here ↓ -->
       <div id="hubspot-form-container">
 
+        <script>
+          // Reset form fields on every page load so cached values never show
+          document.addEventListener('DOMContentLoaded', function() {
+            var container = document.getElementById('hubspot-form-container');
+            var observer = new MutationObserver(function() {
+              var inputs = container.querySelectorAll('input:not([type="submit"]):not([type="hidden"]), select, textarea');
+              if (inputs.length > 0) {
+                inputs.forEach(function(el) { el.value = ''; });
+                observer.disconnect();
+              }
+            });
+            observer.observe(container, { childList: true, subtree: true });
+          });
+
+          // Also clear after submission so re-opening the page is clean
+          window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+              var inputs = document.querySelectorAll('#hubspot-form-container input:not([type="submit"]):not([type="hidden"]), #hubspot-form-container select, #hubspot-form-container textarea');
+              inputs.forEach(function(el) { el.value = ''; });
+            }
+          });
+        </script>
         <script src="https://js.hsforms.net/forms/embed/46099971.js" defer></script>
-<div class="hs-form-frame" data-region="na1" data-form-id="455cf4d0-5cb2-4f72-8ac4-03c62ac19906" data-portal-id="46099971"></div>
+        <div class="hs-form-frame" data-region="na1" data-form-id="455cf4d0-5cb2-4f72-8ac4-03c62ac19906" data-portal-id="46099971"></div>
 
       </div>
     </div>
